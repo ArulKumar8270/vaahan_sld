@@ -33,6 +33,7 @@ class DealerUser extends MainModel
         'product_name', 
         'quantity_price',
         'status',
+        'rto',
         'created_at'
     ];
 
