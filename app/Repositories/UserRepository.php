@@ -25,7 +25,7 @@ class UserRepository extends MainRepository {
             ->IdFilterOn($input, 'id')
             ->StringFilterOn($input, 'email')
 			->StringFilterOn($input, 'username')
-            // ->StringFilterOn($input, 'email_verified_at')
+            ->StringFilterOn($input, 'rto')
 			// ->IdFilterOn($input, 'language_id')
 			->StringFilterOn($input, 'verification_token',false)
 			->StringFilterOn($input, 'status')

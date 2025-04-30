@@ -37,6 +37,7 @@ class DealerUserRepository extends MainRepository {
             ->StringFilterOn($input, 'product_name')
             ->StringFilterOn($input, 'quantity_price')
             ->StringFilterOn($input, 'status')
+            ->StringFilterOn($input, 'rto')
             ->OrderByFilter($input)
             ->DeletedFilter($input)
             ->IncludeFilter($input);
