@@ -52,7 +52,7 @@ Route::get('/login', function () {
 // Routes with middleware 'app:Wlweb'
 Route::group(['middleware' => 'app:Vgnweb'], function () {
     Route::post('/auth/register', [LoginController::class, 'register']);
-    Route::put('/auth/update/{id}', [LoginController::class, 'update']);
+    Route::put('/auth/register/{id}', [LoginController::class, 'update']);
     Route::post('/auth/login', [LoginController::class, 'index']);
     Route::resource('/document', 'DocumentController');
     Route::resource('/registrations', 'RegistrationsController');
