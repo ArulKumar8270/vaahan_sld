@@ -73,6 +73,7 @@ class RegistrationsRepository extends MainRepository {
             ->StringFilterOn($input, 'speed')
             ->StringFilterOn($input, 'testing_agency')
             ->StringFilterOn($input, 'tac_cop_no')
+            ->StringFilterOn($input, 'certificate_type')
             ->OrderByFilter($input)
             ->DeletedFilter($input)
             ->IncludeFilter($input);

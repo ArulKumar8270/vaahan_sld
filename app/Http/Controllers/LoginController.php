@@ -106,4 +106,18 @@ class LoginController extends BaseController
         }
     }
 
+    public function update(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $input = $request->all();
+        $user->update($input);
+
+        $success = [];
+        $success['user'] = $this->userRepository->index(['id' => $user->id])->first();
+
+        return $this->showResponse($request, ['data' => $success]);
+    }
+
+
 }
