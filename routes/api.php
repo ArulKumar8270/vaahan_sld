@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -16,6 +17,17 @@ use App\Http\Controllers\DistributorUserController;
 use App\Http\Controllers\SubDistributorUserController;
 use App\Http\Controllers\DealerUserController;
 use App\Http\Controllers\DealerController;
+
+// Health check: API + DB (no auth required)
+Route::get('/health', function () {
+    try {
+        DB::connection()->getPdo();
+        DB::select('SELECT 1');
+        return response()->json(['status' => 'ok', 'database' => 'connected']);
+    } catch (\Exception $e) {
+        return response()->json(['status' => 'error', 'database' => 'disconnected', 'message' => $e->getMessage()], 503);
+    }
+});
 
 // Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1'], function () {
 
